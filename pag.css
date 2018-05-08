@@ -1,0 +1,23 @@
+thead{
+    background-color: honeydew;
+    font-style:italic;
+    color: black;
+    
+}
+label.hora{
+    display: inline-block;
+    width: 300px;
+    margin: 5px;
+}
+body{
+    background-color: lightgoldenrodyellow;
+    color:black;
+    text-align: left;
+    margin: 10px;
+    
+    
+}
+table{
+    width: 70%;
+    background:yellow;
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Formulario </title>
+        <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="css/pag.css">
+         <script src="js/javascript.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script> 
+        
+        <script type="text/javascript">
+			 function IsValid(){
+                      var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
+                      var string2 = removeSpaces(document.getElementById('txtInput').value);
+                      if (string1 == string2){
+                        return ("Código Verdadeiro!");
+                      }
+                      else{        
+                        return ("Código falso!");
+                      }
+                  }
+                
+             </script>   
+	</head>
+	
+	<body onload="Captcha();">
+     
+        <script type="text/javascript">
+            
+            function verificaNumero(e){
+    if(e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)){
+        return false;
+    }
+}
+    $(document).ready(function()){
+                      $("#cpf").keypress(verificaNumero);
+                      }
+        </script>
+
+<form id="form1" align="center" onSubmit="return Cadastro();" >
+    
+ <table  border="2" align="center" align="center">
+     <thead>
+       <tr>
+           <td colspan="2"><h2>Formulario de Cadastro</h2></td>
+           
+         </tr>
+     </thead>
+     <tbody>
+     <tr>
+         <th><label for="input1" class="hora">CPF</label></th>
+         <th> <input type="text" maxlength="14" placeholder="Ex:000.000.000-00" name="cpf" id="cpf" required onkeypress="this.value = formataCpf(event)" onpaste="return false;"></th>
+     </tr>
+     <tr>
+         <th><label for="input2" class="hora">RG</label> </th> 
+    <th><input type="text" maxlength="8" name="rg" value="" id="rg"  placeholder="Ex:0000.000-0" required></th>
+     </tr>
+     <tr>
+         <th><label for="input3" class="hora">SENHA:</label></th>
+         <th><input type="password" name="senha" value="" id="senha1" required></th>
+
+     </tr>
+     <tr>
+         <th><label for="input4" class="hora">REPITA SENHA</label></th>
+         <th> <input onblur="validasenha(this)" id="box-input" type="password" on placeholder="repita senha" id="rep-senha"></th>
+     </tr>
+     
+     <tr>
+         <th><label for="input5" class="hora">NOME:</label></th>
+         <th> <input type="text" name="nome" value="" id="nome" required></th>
+     </tr>
+     
+     <tr>
+     <th><label for="input6" class="hora">SEXO:</label></th>
+         <th><input type="radio" name="sexo" value="masculino" id="h" >H
+        <input type="radio" name="sexo" value="feminino" id="m"> M</th>
+         </tr>
+     
+     <tr>
+        <th><label for="input7" class="hora">CELULAR:</label></th>
+        <th><input type="text" name="cel" value="" id="cel" required onkeypress="this.value = formataCel(event)"  maxlength="14"></th>
+     </tr>
+     
+    <tr>
+        <th><label for="input3" class="hora">DATA DE NASCIMENTO:</label></th>
+        <th> <input type="date" name="date" value="" id="data" required></th>
+     </tr>
+     
+     <tr>
+         <th><label for="input3" class="hora">EMAIL:</label></th>
+         <th><input type="text" name="email" value="" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required></th>
+     </tr>
+     
+     <tr>
+         <th><label for="input3" class="hora">REPITA EMAIL  </label> </th>
+         <th> <input onblur="validaemail(this)" id="box-input" type="text" on placeholder="repita email" name="rep_email" value=""id="rep-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required></th>
+     </tr>
+     
+     <tr>
+         <th> <label for="input3" class="hora">CONTATO DE EMERGENCIA:</label></th>
+         <th><input type="text" name="contEmerg" value="" id="contEme" required onkeypress="this.value = contEmergencia(event)"  maxlength="14"></th>
+     </tr>
+     
+   <tr>
+        <th><label for="input3" class="hora">TELEFONE DE EMERGENCIA:</label></th>
+        <th><input type="text" name="telEmerg" value="" id="telemer" required onkeypress="this.value = telEmergencia(event)"  maxlength="13"></th>
+     </tr>
+     </tbody>
+    </table>
+    <br><br>
+    
+    <table border="2" align="center">
+        <tr>
+        <th><label for="input3" class="hora">CODIGO DE VALIDAÇÃO:</label></th>
+
+     </tr>
+           
+        
+         <tr>
+          <th>
+        <input type="text" placeholder="De Refresh Para o Código" id="mainCaptcha"/>
+               <input type="button" id="refresh" value="Código"   onclick="CaptchaGenerator();" />
+                
+          </th>
+        </tr>
+          
+          <tr>
+              <th>
+                <input type="text" id="txtInput"/>    
+                <input id="Button1" type="button" value="Validar"  onclick="alert(IsValid());"/>
+              </th>
+         </tr>
+    
+    </table>
+
+<br><button type="submit" >Enviar </button>  
+   
+     
+</form>
+
+	</body>
+</html>
